@@ -1,10 +1,5 @@
-Name : Devesh  Mali
-Class : B – B2
- Roll no:13228
-
 // Macro Pass1  code :
 import re
-
 def main():
     # Open files
     with open("macro_input.asm", "r") as br, \
