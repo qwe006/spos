@@ -1,0 +1,84 @@
+ What is Memory Management?
+In a multiprogramming computer, the Operating System resides in a part of memory, and the rest is used by multiple processes. The task of subdividing the memory among different processes is called Memory Management. Memory management is a method in the operating system to manage operations between main memory and disk during process execution. The main aim of memory management is to achieve efficient utilization of memory.  
+Why Memory Management is Required?
+•	Allocate and de-allocate memory before and after process execution.
+•	To keep track of used memory space by processes.
+•	To minimize fragmentation issues.
+•	To proper utilization of main memory.
+•	To maintain data integrity while executing of process.
+
+•	Memory Allocation
+Memory allocation is a process by which computer programs and services are assigned with physical or virtual memory space.
+
+Memory allocation is the process of reserving a partial or complete portion of computer memory for the execution of programs and processes. Memory allocation is achieved through a process known as memory management.
+There are four types of memory Allocation Algorithms
+
+ 
+1.  First fit Algorithm:
+In the first fit approach is to allocate the first free partition or hole large enough which can accommodate the process. It finishes after finding the first suitable free partition.
+Advantages:
+	1.Fast Allocation: Quick to implement as it stops searching once it finds the first suitable block.
+2.Low Overhead: Less processing time and fewer comparisons compared to other algorithms.
+Disadvantages:
+       1.External Fragmentation: Leads to gaps in memory, increasing fragmentation over time.
+2.Inefficient Memory Usage: It may leave smaller free blocks scattered in memory, which might be too small to satisfy future requests.
+	ALGORITHM:
+Step no 01: Get number of processes and number of blocks.
+Step no 02: After that get the size of each block and process requests.
+Step no 03: Now allocate processes
+if (block size >= process size)
+                          allocate the process 
+                        Else
+   move on to next block
+Step no 04: Display the processes with the blocks that are allocated to a respective process.
+Step no 05: Stop.
+
+2.	Best fit Algorithm:
+The best fit deals with allocating the smallest free partition which meets the requirement of the requesting process. This algorithm first searches the entire list of free partitions and considers the smallest hole that is adequate. It then tries to find a hole which is close to actual process size needed.
+        Advantages:
+•	Minimizes Wasted Space: Leaves the smallest amount of unused space in memory, reducing memory waste for each allocation.
+•	Reduces External Fragmentation: Makes efficient use of smaller memory blocks, which can be beneficial for systems with limited memory.
+Disadvantages:
+•	Slower Allocation: Requires searching the entire memory for the smallest suitable block, leading to higher processing time.
+•	Creates Small Free Blocks: It may leave many small, unusable blocks, increasing the chances of fragmentation.
+
+	ALGORITHM:
+Step 1: Get number of processes and number of blocks.
+Step 2: After that get the size of each block and process requests.
+Step 3: Then select the best memory block that can be allocated using the above definition.
+Step 4: Display the processes with the blocks that are allocated to a respective process.
+Step 5: Value of fragmentation is optional to display to keep track of wasted memory.
+Step 6: Stop.
+
+3.	Worst fit Algorithm:
+In worst fit approach is to locate largest available free portion so that the portion left will be big enough to be useful. It is the reverse of best fit.
+Advantages:
+Reduces Fragmentation: Leaves larger leftover memory blocks, which can be more useful for future allocations.
+Better for Large Allocations: Works well if there are frequent requests for large blocks, as it leaves more substantial gaps.
+Disadvantages:
+	High Wastage for Small Allocations: Often leaves large blocks partially unused, which can lead to         inefficient memory usage.
+Slower Allocation: Requires searching for the largest suitable block, which can be time-consuming.
+	ALGORITHM:
+Step no 01: Input memory block with a size. Step no 02: Input process with size.
+Step no 03: Initialize by selecting each process to find the maximum block size that can be assigned to the current process.
+Step no 04: If the condition does not fulfil, they leave the process.
+Step no 05: If the condition is not fulfilled, then leave the process and check for the next process.
+Step no 06: Stop.
+
+4.	Next fit Algorithm:
+Next fit is a modified version of first fit. It begins as first fit to find a free partition. When called next it starts searching from where it left off, not from the beginning.
+Advantages:
+•	Reduces Fragmentation: Leaves larger leftover memory blocks, which can be more useful for future allocations.
+•	Better for Large Allocations: Works well if there are frequent requests for large blocks, as it leaves more substantial gaps.
+Disadvantages:
+•	High Wastage for Small Allocations: Often leaves large blocks partially unused, which can lead to inefficient memory usage.
+•	Slower Allocation: Requires searching for the largest suitable block, which can be time-consuming.
+
+ALGORITHM:
+Step no 01: Enter the number of memory blocks. Step no 02: Enter the size of each memory block.
+Step no 03: Enter the number of processes with their sizes.
+Step no 04: Start by selecting each process to check if it can be assigned to the current memory block.
+Step no 05: If the condition in step 4 is true, then allocate the process with the required memory and check for the next process from the memory block where searching was halted, not from the starting.
+Step no 06: If the current memory size is smaller, then continue to check the next blocks.
+Step no 07: Stop.
+
