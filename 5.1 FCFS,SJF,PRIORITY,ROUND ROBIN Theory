@@ -1,0 +1,81 @@
+
+Schedular:
+Schedular is an Operating System module that selects the next job to be admitted into the system & next process to run. 
+
+Scheduling:-
+Scheduling is the method specified by some means is assigned to resources
+that complete the work; work may be either virtual computation elements like thread, processes, data flows etc. 
+There is Major two types of scheduling algorithm to solve any sort of operations.
+
+
+Preemptive Scheduling	Non-Preemptive Scheduling
+ 
+Processor can be preempted to execute a different process in the middle of execution of any current process.
+CPU utilization is more compared to Non-Preemptive Scheduling.
+ 
+Once Processor starts to execute a process it must finish it before executing the other. It cannot be paused in middle.
+CPU utilization is less compared to Preemptive Scheduling.
+ 
+Waiting time and Response time is less. Waiting time and Response time is
+more.
+ 
+The preemptive scheduling is prioritized. The highest priority process should always be the process that is currently utilized.
+If a high priority process frequently arrives in the ready queue, low priority process may starve.
+ 
+When a process enters the state of running, the state of that process is not deleted from the scheduler until it finishes its service time.
+If a process with long burst time is running CPU, then another process with less CPU burst time may starve.
+ 
+Preemptive scheduling is flexible.	Non-preemptive scheduling is rigid. Ex:- Priority, Round Robin, etc.	Ex:- FCFS, SJF, Priority, etc.
+
+Terminologies Used in CPU Scheduling 
+•	Arrival Time: The time at which the process arrives in the ready queue.
+•	Completion Time: The time at which the process completes its execution.
+•	Turn Around Time: Time Difference between completion time and arrival time. Turn Around Time = (Completion Time – Arrival Time)
+•	Waiting Time (W. T): Time Difference between turnaround time and burst time Ie.
+•	Waiting Time = (Turn Around Time – Burst Time).
+
+First-Come, First-Served (FCFS)
+•	Definition:
+FCFS schedules processes in the order of their arrival in the ready queue. The first process that arrives is executed first, and subsequent processes wait until the CPU is free.
+•	Advantages:
+•	Simple and Easy to Implement: The algorithm is straightforward with minimal overhead.
+•	Fair to Processes: Each process gets a chance to execute in the order of arrival, avoiding process starvation.
+•	Disadvantages:
+•	Poor Response Time for Longer Processes: Long processes can cause delays, leading to the "convoy effect" where shorter processes have to wait for a long process to complete.
+•	Not Ideal for Time-Sharing: It does not prioritize processes based on their execution time or priority, which can be inefficient in systems with interactive tasks.
+•	________________________________________
+•	2. Shortest Job First (SJF)
+•	Definition:
+SJF schedules processes based on their burst time. The process with the shortest burst time is executed first. SJF can be implemented in two forms:
+•	Non-preemptive SJF: Once a process starts execution, it cannot be interrupted.
+•	Preemptive SJF (Shortest Remaining Time First): The CPU is assigned to the process with the shortest remaining burst time, even if it means preempting a currently running process.
+•	Advantages:
+•	Minimizes Average Waiting Time: By executing shorter jobs first, SJF reduces the average waiting time of processes.
+•	Efficient for Batch Systems: SJF can be effective for batch-processing systems where process times are known in advance.
+•	Disadvantages:
+•	Difficult to Implement in Real-Time: It requires knowledge of the burst time, which is often not known in advance.
+•	Starvation of Longer Processes: Processes with longer burst times may be delayed indefinitely, causing starvation.
+•	________________________________________
+•	3. Priority Scheduling
+•	Definition:
+In Priority Scheduling, each process is assigned a priority. The CPU is allocated to the process with the highest priority. If two processes have the same priority, scheduling can fall back on another algorithm like FCFS.
+•	Advantages:
+•	Flexibility in Process Management: Allows processes with higher importance to be executed first, making it suitable for real-time systems.
+•	Supports Preemption: Priority scheduling can be either preemptive or non-preemptive, providing flexibility in scheduling.
+•	Disadvantages:
+•	Starvation: Low-priority processes may be indefinitely delayed if high-priority processes keep arriving, a problem known as "priority inversion."
+•	Complex Implementation: Managing priorities and avoiding starvation can add complexity to the scheduling system.
+•	________________________________________
+•	4. Round Robin (RR)
+•	Definition:
+Round Robin is a preemptive scheduling algorithm where each process is assigned a fixed time slot (or quantum). Processes execute in a cyclic order, and if a process does not complete within its time quantum, it is moved to the end of the queue, allowing other processes to execute.
+•	Advantages:
+•	Good for Time-Sharing Systems: Round Robin ensures all processes get a fair share of the CPU, making it suitable for time-sharing systems.
+•	Low Waiting Time for Short Processes: Small processes get a quick response time as the CPU is shared in fixed intervals.
+•	Disadvantages:
+	High Context Switching Overhead: Frequent switching between processes can increase overhead, especially if the quantum is very short.
+	Poor Performance with Large Quantum: If the quantum is too large, Round Robin can behave similarly to FCFS, losing its responsiveness.
+
+
+ 
+
