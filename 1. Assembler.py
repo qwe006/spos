@@ -1,6 +1,3 @@
-Name : Devesh Mali
-Class : B – B2
-Roll no :13228
 
 //Pass 1 code:
    
