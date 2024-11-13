@@ -1,0 +1,78 @@
+1.	Page Replacement:
+Page replacement is the process of deciding which memory page to remove from physical memory (RAM) to make space for a new page when the memory is full. The decision is governed by page replacement algorithms, such as FIFO, LRU, and Optimal. These algorithms help determine which page to evict to minimize page faults and maintain efficient system performance.
+2.	Page Fault:
+A page fault occurs when a program tries to access a page that is not currently loaded in physical memory. When this happens, the operating system must retrieve the required page from secondary storage (like a hard drive or SSD) and bring it into memory. Page faults are a normal part of memory management, but too many page faults can slow down system performance.
+3.	Page Hit:
+A page hit occurs when a program accesses a page that is already present in physical memory. In this case, no extra action is needed since the required data is available directly in RAM, allowing for faster access and more efficient execution. Page hits are desirable because they avoid the need for costly page swaps or disk reads.
+
+1. FIFO (First-In-First-Out) Page Replacement
+Definition:
+The FIFO page replacement algorithm removes the page that has been in memory the longest. Pages are organized in a queue, and the oldest page is evicted whenever a new page needs to be loaded into memory.
+Advantages:
+•	Simple to implement as it only requires tracking the order in which pages were loaded.
+•	Low overhead due to its straightforward approach.
+Disadvantages:
+•	Can lead to Belady's anomaly, where increasing the number of page frames can lead to an increase in page faults.
+•	Does not consider page usage frequency or recency, so it can evict pages that are frequently accessed, leading to inefficiency.
+________________________________________
+2. LRU (Least Recently Used) Page Replacement
+Definition:
+The LRU algorithm evicts the page that has not been used for the longest period. It is based on the idea that pages recently accessed are more likely to be accessed again soon, while pages not accessed recently are less likely to be used.
+Advantages:
+•	Provides better performance than FIFO in most cases, as it uses historical access patterns.
+•	Reduces the likelihood of evicting frequently used pages, which helps minimize page faults.
+Disadvantages:
+•	More complex to implement than FIFO since it requires tracking the order of all page accesses.
+•	Has higher memory and processing overhead, especially in systems with limited resources.
+________________________________________
+3. Optimal Page Replacement
+Definition:
+The Optimal page replacement algorithm replaces the page that will not be needed for the longest time in the future. This algorithm is theoretical because it requires knowledge of future page requests, which is usually impractical.
+Advantages:
+•	Minimizes page faults and is considered the best possible algorithm in terms of performance.
+•	Provides a benchmark to evaluate the effectiveness of other algorithms.
+Disadvantages:
+•	Impractical to implement in real-time systems, as it requires future knowledge of page requests.
+•	Useful only in theoretical or simulated environments, as it cannot be applied to actual systems.
+
+
+Algorithm for FIFO:
+1- Start traversing the pages.
+i)	If set holds less pages than capacity.
+a)	Insert page into the set one by one until the size of set reaches capacity or all page requests are processed.
+b)	Simultaneously maintain the pages in the queue to perform FIFO.
+c)	Increment page fault
+ii)	Else
+     If 
+       current page is present in set, do nothing.
+Else
+a)	Remove the first page from the queue as it was the first to be entered in the memory
+b)	Replace the first page in the queue with the current page in the string.
+c)	Store current page in the queue.
+d)	Increment page faults.
+2. Return page faults.
+Algorithm for LRU:
+Let capacity be the number of pages that memory can hold. Let set be the current set of pages in memory.
+
+1- Start traversing the pages.
+i)	If set holds less pages than capacity.
+a)	Insert page into the set one by one until the size of set reaches capacity or all page requests are processed.
+b)	Simultaneously maintain the recent occurred index of each page in a map called
+indexes.
+c)	Increment page fault
+ii)	Else
+If current page is present in set, do nothing.
+Else
+a)	Find the page in the set that was least recently used. We find it using index array. We basically need to replace the page with minimum index.
+b)	Replace the found page with current page.
+c)	Increment page faults.
+d)	Update index of current page.
+2. Return page faults.
+
+Algorithm for Optimal:
+1.	Push the first page in the memory as per the memory demand.
+2.	Push the second page as per the memory demand.
+3.	Push the third page until the memory is full.
+4.	As the queue is full, the page which is least recently used is popped.
+5.	Repeat step 4 until the page demand continues and until the processing is over.
+6.	Terminate the program
