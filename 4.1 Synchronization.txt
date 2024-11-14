@@ -1,0 +1,58 @@
+Mutex
+•	Mutex is used to ensure only one thread at a time can access the resource protected by the mutex. The process that look the mutex must be the one that unlock it. Mutex is good
+only for managing mutual exclusion to some shared resource.
+•	Mutex is easy and efficient for implement.
+•	Mutex can be in one of two states  : locked or unlocked.
+•	Mutex is represented by one bit. Zero (0) means unlock and other value represents locked. It uses two procedures.
+•	When a process need access to a critical section, it checks the condition of mutex_locks. If the mutex is currently unlocked then calling process enters into critical section.
+•	If the mutex is locked , the calling process is enters into blocked state and wait until the process in the critical section finishes its execution .
+•	Mutex variable have only two states so they are simple implement. Their use is limited to guarding entries to critical resigns.
+•	Mutex variable is like a binary semaphore. But both are not same.
+Algorithm:
+
+ 
+Semaphore :
+•	Semaphore is described by Dijkstra . Semaphore is a non-negative integer variable that is used as a flag. Semaphore is an operating system abstract data type. If takes only integer
+value. Its used to solve critical section problem.
+•	Dijkstra introduces two operations (p and v) to operate on semaphore to solve process synchronization problem. A process calls the p operation when it wants to enter its critical
+section and calls v operation when it when to exit its critical section. The p operation and is called as signal operation.
+•	A wait operation on a semaphore decease its value by one. Waits : < 0
+Do loops; S: = S – 1;
+•	A signal operation increments its value: Signal:
+S := S + 1;
+•	A proper semaphore implementation requires that p and v indivisible operations. A semaphore operation is atomic. This may be possible by taking hardware support. The operation p and v
+are executed by the operating system in response to calls issued by any one process naming a semaphore as parameter.
+•	There is no guarantee that no two processes can execute wait and signal operations on the same semaphore at the same time.
+Properties of semaphore :
+1.	Semaphores are machine independent.
+2.	Semaphores are simple to implement.
+3.	Correctness is easy to determine.
+4.	Semaphore acquire many resources simultaneously.
+
+
+
+
+Conclusion: In this practical we successfully solve classical problems of synchronization using Mutex and Semaphore.
+
+Readers Writers Problem
+The readers-writer problem in operating systems is about managing access to shared data. It allows multiple readers to read data at the same time without issues but ensures that only one 
+writer can write at a time, and no one can read while writing is happening. This helps prevent data corruption and ensures smooth operation in multi-user systems. Probably the most 
+fundamental problem in concurrent programming is to provide safe access to shared resources.
+•	Readers: Multiple readers can access the shared data simultaneously without causing any issues because they are only reading and not modifying the data.
+•	Writers: Only one writer can access the shared data at a time to ensure data integrity, as writers modify the data, and concurrent modifications could lead to data corruption or inconsistencies.
+Challenges of the Reader-Writer Problem
+The challenge now becomes how to create a synchronization scheme such that the following is supported:
+•	Multiple Readers: A number of readers may access simultaneously if no writer is presently writing.
+•	Exclusion for Writers: If one writer is writing, no other reader or writer may access the common resource.
+Solution of the Reader-Writer Problem
+There are two fundamental solutions to the Readers-Writers problem:
+•	Readers Preference: In this solution, readers are given preference over writers. That means that till readers are reading, writers will have to wait. The Writers can access the resource 
+only when no reader is accessing it.
+•	Writer’s Preference: Preference is given to the writers. It simply means that, after arrival, the writers can go ahead with their operations; though perhaps there are readers currently
+accessing the resource.
+conclusion
+The Readers-Writers problem is one of the central themes in computing concurrency, trying to explain how shared resources are challenged with respect to synchronization. Basically, the 
+readers-preference solution is a strategy ensuring that, whenever possible, readers get priority over writers for performing read operations to increase efficiency while maintaining the
+integrity of the shared resource. Understanding the efficient solutions to the Readers-Writers problem is central to a good, robust concurrent system that makes sure no reader or writer
+will ever be delayed needlessly or suffer data corruption.
+
